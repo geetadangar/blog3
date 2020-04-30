@@ -1,0 +1,21 @@
+<h1>this is blog </h1>
+<%= link_to 'login', new_user_registration_path , :controller => 'users', :action => 'new'%>
+<div class="home index">
+  <h1>home</h1>
+  <table class="listing" summary="home list">
+    <tr class="header">
+      <th>name</th>
+      <th>discription</th>
+      <th>Acton</th>
+    </tr>
+    <% @homes.each do |home|%>
+    <tr>
+      <td><%= home.name %></td>
+      <td><%= home.discription %></td>
+      <td class = "action">
+        <%= link_to("Show",home_path(home),:class=>'action show')%>
+        
+      </td>
+    </tr>
+    <%end%>
+  </table>

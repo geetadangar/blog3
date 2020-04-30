@@ -60,7 +60,7 @@ class HomeController < ApplicationController
       @home = Home.find(params[:id])
     end
     def home_params
-      params.permit(:name, :Description)
+      params.permit(:name, :discription)
 
     end
 end
