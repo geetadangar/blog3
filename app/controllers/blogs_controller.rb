@@ -44,13 +44,13 @@ class BlogsController < ApplicationController
   # end
 
  
-  # def destroy
-  #   @bloge.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to blog_url, notice: 'blog was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @bloge.destroy
+    respond_to do |format|
+      format.html { redirect_to blogs_url, notice: 'blog was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   # private
   #    def set_blog

@@ -1,7 +1,7 @@
 <div class="home index">
   <h1>home</h1>
   <%= link_to("Add new home",'home/new',:class => 'action new')%>
-  <table class="listing" summary="home list">
+  <table border="1">
     <tr class="header">
       <th>name</th>
       <th>discription</th>
@@ -11,17 +11,21 @@
     <tr>
       <td><%= home.name %></td>
       <td><%= home.discription %></td>
-      <td><%# link_to 'Show', home %></td>
-        <td><%# link_to 'Edit', edit_home_path(home) %></td>
-        <td><%# link_to 'Destroy', home, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <%# link_to 'Show', home %>
+        <%# link_to 'Edit', edit_home_path(home) %>
+        <%# link_to 'Destroy', home, method: :delete, data: { confirm: 'Are you sure?' } %>
       <td class = "action">
         <%= link_to("Show",home_path(home),:class=>'action show')%>
         <%= link_to("Edit",edit_home_path(home),:class=>'action edit')%>
         <%# link_to("Delete",delete_home_path(home),:class=>'acton delete')%>
         <td><%= link_to 'Destroy', home, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%# button_to 'Destroye', @home, :method => :delete %>
+        <%= button_to "delete", {:controller => :home,
+      :action => 'destroy', :id => home.id }, :method => :delete %>
       </td>
-      <td>
-      <%= link_to 'login', new_user_registration_path , :controller => 'users', :action => 'new'%></td>
+      </td>
+      <%# link_to 'login', new_user_registration_path , :controller => 'users', :action => 'new'%>
     </tr>
     <%end%>
   </table>
@@ -30,6 +34,8 @@
   <h1>hello</h1>
 <h2>this is home page for user controller </h2>
 <%# link_to 'Back', :sign_in %>
-<%= link_to 'logout', destroy_user_session_path , :controller => 'users', :action => 'new'%>
+<%# link_to 'logout', destroy_user_session_path , :controller => 'users', :action => 'new'%>
+<%# link_to 'Logout' , destroy_user_session_path, :method => :delete %>
+<%= button_to 'Logout', destroy_user_session_path, :method => :delete %>
 
 <%#link_to 'login' ,:controller => 'home', :action => 'index', :id=>phone.id %>
