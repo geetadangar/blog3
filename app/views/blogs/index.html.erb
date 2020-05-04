@@ -1,21 +1,37 @@
-<h1>this is blog </h1>
-<b><%= link_to 'Login or Sign_up', new_user_registration_path , :controller => 'users', :action => 'new'%></b>
-<div class="home index">
-  <h1>home</h1>
-  <table border="2">
+<div class="blogs index">
+  <h1>BLOG</h1>
+  <b><%= link_to 'login', user_session_path , :controller => 'users', :action => 'new'%></b><br><br>
+  <%= link_to("Add new blogs",'blogs/new',:class => 'action new')%>
+  <table border="1">
     <tr class="header">
       <th>name</th>
       <th>discription</th>
       <th>Acton</th>
     </tr>
-    <% @homes.each do |home|%>
+    <% @blogs.each do |blog|%>
     <tr>
-      <td><%= home.name %></td>
-      <td><%= home.discription %></td>
-      <td class = "action">
-        <%= link_to("Show",home_path(home),:class=>'action show')%>
+      <td><%= blog.name %></td>
+      <td><%= blog.description %></td>
+      <%# link_to 'Show', home %>
+        <%# link_to 'Edit', edit_home_path(home) %>
+        <%# link_to 'Destroy', home, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <td class = "action"> 
+        <%= link_to("Show",blog_path(blog),:class=>'action show')%>
+        <%= link_to("Edit",edit_blog_path(blog),:class=>'action edit')%>
+        <%# link_to("Delete",delete_blog_path(blog),:class=>'acton delete')%>
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%# button_to 'Destroye', @blog, :method => :delete %>
         
       </td>
-    </tr>
     <%end%>
   </table>
+
+
+  <h1>hello</h1>
+<h2>this is blog page  </h2>
+<%# link_to 'Back', :sign_in %>
+<%# link_to 'logout', destroy_user_session_path , :controller => 'users', :action => 'new'%>
+<%# link_to 'Logout' , destroy_user_session_path, :method => :delete %>
+<%= button_to 'Logout', destroy_user_session_path, :method => :delete %>
+
+<%#link_to 'login' ,:controller => 'home', :action => 'index', :id=>phone.id %>
